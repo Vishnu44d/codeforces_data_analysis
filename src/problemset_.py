@@ -6,6 +6,7 @@ base_dir = "../data/problemset"
 base_url = "http://codeforces.com/api/"
 problem_subUrl = "problemset.problems"
 all_file = "all_data"
+
 url = base_url + problem_subUrl
 
 
@@ -25,18 +26,69 @@ if res.status_code == 200:
     print("Link Got")
 raw_data = dict(res.json())
 
-with open(base_dir + all_file + ".csv", "a") as f:
-    f.write("contestId, Problem_name, type, rating, tags, level")
+with open(base_dir + all_file + ".csv", "w") as f:
+    f.write("contestId, Problem_name, type, rating, tags, level\n")
+
+with open(base_dir + "problem_stat"+ ".csv", "w") as f:
+    f.write("contestId, solvedCount\n")
 
 if raw_data['status'] == 'OK':
     print("Conform")
-    with open(base_dir+all_file, "a") as f:
-        for k in raw_data['result']['problems'][:3]:
-            print(k)
-            '''
+    with open(base_dir + all_file + ".csv", "a") as f:
+        i = 0
+        for k in raw_data['result']['problems']:
+            #print(k)
             st = ""
-            st += str(k['contestID']) + "," + str(k['name']) + "," + str(k['type']) + "," + \
-            str(k['rating']) + "," + str(k['tags']) + "," + str(k['index'])
-            f.write(st)
-'''
+            try:
+                st += str(k['contestId'])
+            except KeyError:
+                st += "NoID"
+            st += ","
+            try:
+                st += str(k['name'])
+            except KeyError:
+                st += "NoName"
+            st += ","
+            try:
+                st += str(k['type'])
+            except KeyError:
+                st += "NaN"
+            st += ","
+            try:
+                st += str(k['rating'])
+            except KeyError:
+                st += "NaN"
+            st += ","
+            try:
+                st += str(k['tags'])
+            except KeyError:
+                st += "NaN"
+            st += ","
+            try:
+                st += str(k['index'])
+            except KeyError:
+                st += "NaN"
+
+            
+            f.write(st+"\n")
+            #print(i)
+            i += 1
+    print(i, " number of rows added in problemsetall_data.csv")
+    with open(base_dir + "problem_stat" + ".csv", "a") as f:
+        i = 0
+        for k in raw_data['result']['problemStatistics']:
+            st = ""
+            try:
+                st += str(k['contestId'])
+            except KeyError:
+                st += "NoID"
+            st += ","
+            try:
+                st += str(k['solvedCount'])
+            except KeyError:
+                st += "NoName"
+            f.write(st+"\n")
+            #print(i)
+            i += 1
+    print(i, " number of rows added in problemsetall_data.csv")
 
