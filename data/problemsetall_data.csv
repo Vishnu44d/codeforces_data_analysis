@@ -22,7 +22,7 @@ contestId, Problem_name, type, rating, tags, level
 1146,Zoning Restrictions,PROGRAMMING,2600,['dp'/ 'flows'/ 'graphs'],G
 1146,Leaf Partition,PROGRAMMING,2400,['dp'/ 'trees'],F
 1146,Hot is Cold,PROGRAMMING,2400,['data structures'/ 'divide and conquer'],E
-1146,Frog Jumping,PROGRAMMING,2100,['math'],D
+1146,Frog Jumping,PROGRAMMING,2100,['dfs and similar'/ 'math'],D
 1146,Tree Diameter,PROGRAMMING,1700,['bitmasks'/ 'graphs'],C
 1146,Hate "A",PROGRAMMING,1100,['implementation'/ 'strings'],B
 1146,Love "A",PROGRAMMING,600,['implementation'/ 'strings'],A

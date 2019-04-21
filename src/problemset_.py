@@ -30,7 +30,7 @@ with open(base_dir + all_file + ".csv", "w") as f:
     f.write("contestId, Problem_name, type, rating, tags, level\n")
 
 with open(base_dir + "problem_stat"+ ".csv", "w") as f:
-    f.write("contestId, solvedCount\n")
+    f.write("contestId, level,solvedCount\n")
 
 if raw_data['status'] == 'OK':
     print("Conform")
@@ -82,6 +82,11 @@ if raw_data['status'] == 'OK':
                 st += str(k['contestId'])
             except KeyError:
                 st += "NoID"
+            st += ","
+            try:
+                st += str(k['index']).replace(",", "/")
+            except KeyError:
+                st += "NaN"
             st += ","
             try:
                 st += str(k['solvedCount'])
