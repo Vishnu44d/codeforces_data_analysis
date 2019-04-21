@@ -40,32 +40,32 @@ if raw_data['status'] == 'OK':
             #print(k)
             st = ""
             try:
-                st += str(k['contestId'])
+                st += str(k['contestId']).replace(",", "/")
             except KeyError:
                 st += "NoID"
             st += ","
             try:
-                st += str(k['name'])
+                st += str(k['name']).replace(",", "/")
             except KeyError:
                 st += "NoName"
             st += ","
             try:
-                st += str(k['type'])
+                st += str(k['type']).replace(",", "/")
             except KeyError:
                 st += "NaN"
             st += ","
             try:
-                st += str(k['rating'])
+                st += str(k['rating']).replace(",", "/")
             except KeyError:
                 st += "NaN"
             st += ","
             try:
-                st += str(k['tags'])
+                st += str(k['tags']).replace(",", "/")
             except KeyError:
                 st += "NaN"
             st += ","
             try:
-                st += str(k['index'])
+                st += str(k['index']).replace(",", "/")
             except KeyError:
                 st += "NaN"
 
