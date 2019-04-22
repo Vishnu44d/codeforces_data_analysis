@@ -5,7 +5,9 @@
 - src: 
     - It contains the source codes.
 - data:
-    - It contains the dataset files
+    - It contains the dataset files.
+- graphs
+    - It contains the figures.
 
 ### Conclusions:
 ![Figure 1](https://github.com/Vishnu44d/codeforces_data_analysis/blob/master/graphs/fig1.png)
